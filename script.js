@@ -7,9 +7,9 @@ Employee.prototype.whoAreYou = function () {
     return `My name is ${this.name} and I am working in department ${this.department}`;
 };
 
-function Manager(name, department, employees = []) {
+function Manager(name, employees) {
     Employee.call(this, name, "general");
-    this.employees = employees;
+    this.employees = employees || [];
     this.fireEmployee = function (name) {
 
         for (let i = 0; i < employees.length; i++) {
@@ -19,19 +19,32 @@ function Manager(name, department, employees = []) {
         }
     }
 };
+Manager.prototype = new Employee();
 
-function SalesPerson(name, department, quota) {
+
+function SalesPerson(name, quota) {
     Employee.call(this, name, "sales");
     this.quota = quota;
 };
+SalesPerson.prototype = new Employee();
 
-//Objekti primeri:
+
+//Objekti primeri:----------------------------------------------------------------------------------------------
 
 let nenad = new Employee("nenad", "general");
 let dejan = new Employee("dejan", "sales");
 let nikola = new Employee("nikola", "marketing");
-let igor = new Manager("igor", "general", [nenad, dejan, nikola]);
+let igor = new Manager("igor", [nenad, dejan, nikola]);
 
 igor.fireEmployee("nenad");
 console.log(igor);
+
+console.log(igor.whoAreYou());
+
+let petar = new SalesPerson("petar", 56);
+console.log(petar);
+
+console.log(petar.whoAreYou());
+
+
 
