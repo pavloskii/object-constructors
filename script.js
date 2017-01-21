@@ -33,5 +33,5 @@ let nikola = new Employee("nikola", "marketing");
 let igor = new Manager("igor", "general", [nenad, dejan, nikola]);
 
 igor.fireEmployee("nenad");
-
+console.log(igor);
 
