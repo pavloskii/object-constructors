@@ -1,3 +1,4 @@
+//Employee constructor------------------------------------------------------------------------------
 function Employee(name, department) {
     this.name = name;
     this.department = department;
@@ -7,6 +8,7 @@ Employee.prototype.whoAreYou = function () {
     return `My name is ${this.name} and I am working in department ${this.department}`;
 };
 
+//Manager constructor-------------------------------------------------------------------------------
 function Manager(name, employees) {
     Employee.call(this, name, "general");
     this.employees = employees || [];
@@ -21,7 +23,7 @@ function Manager(name, employees) {
 };
 Manager.prototype = new Employee();
 
-
+//SalesPerson constructor---------------------------------------------------------------------------
 function SalesPerson(name, quota) {
     Employee.call(this, name, "sales");
     this.quota = quota;
@@ -29,8 +31,7 @@ function SalesPerson(name, quota) {
 SalesPerson.prototype = new Employee();
 
 
-//Objekti primeri:----------------------------------------------------------------------------------------------
-
+//Objekti primeri:----------------------------------------------------------------------------------
 let nenad = new Employee("nenad", "general");
 let dejan = new Employee("dejan", "sales");
 let nikola = new Employee("nikola", "marketing");
