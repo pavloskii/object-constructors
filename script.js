@@ -25,11 +25,13 @@ function SalesPerson(name, department, quota) {
     this.quota = quota;
 };
 
-let nenad = new Employee("nenad", "labavo");
-let dejan = new Employee("dejan", "uste polabavo");
-let nikola = new Employee("nikola", "labavime");
+//Objekti primeri:
+
+let nenad = new Employee("nenad", "general");
+let dejan = new Employee("dejan", "sales");
+let nikola = new Employee("nikola", "marketing");
 let igor = new Manager("igor", "general", [nenad, dejan, nikola]);
-console.log(igor);
+
 igor.fireEmployee("nenad");
-console.log(igor);
+
 
